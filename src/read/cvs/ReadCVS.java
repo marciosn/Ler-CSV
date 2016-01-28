@@ -27,9 +27,32 @@ public class ReadCVS {
 				while ((line = br.readLine()) != null) {
 
 				        // use comma as separator
-					String[] country = line.split(cvsSplitBy);
+					String[] enemResult = line.split(cvsSplitBy);
+					
+					
 
-					System.out.println("Country [code= " + country[0] + " , name=" + country[1] + "]");
+					/*System.out.println("Inscricao =" + enemResult[0] +
+							" ; cienciasDaNatureza =" + enemResult[1] +
+							" ; cienciasHumanas =" + enemResult[2] +
+							" ; linguagensCodigos =" + enemResult[3] +
+							" ; matematica =" + enemResult[4] +
+							" ; redacao =" + enemResult[5]);*/
+					
+					float coluna_1 = 0;
+					float coluna_2 = 0;
+					float coluna_3 = 0;
+					float coluna_4 = 0;
+					float coluna_5 = 0;
+					
+					coluna_1 = Float.valueOf(enemResult[1]);
+					coluna_2 = Float.valueOf(enemResult[2]);
+					coluna_3 = Float.valueOf(enemResult[3]);
+					coluna_4 = Float.valueOf(enemResult[4]);
+					coluna_5 = Float.valueOf(enemResult[5]);
+					
+					double media = (coluna_1 + coluna_2 + coluna_3 + coluna_4 + coluna_5) / 5;
+					
+					System.out.println("Média " + media);
 
 				}
 
