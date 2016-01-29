@@ -38,23 +38,7 @@ public class ReadCVS {
 				br = new BufferedReader(new FileReader(csvFile));
 				while ((line = br.readLine()) != null) {
 					result = line.split(cvsSplitBy);
-					
-					// IGNORA A PRIMEIRA LINHA DO CSV QUE NAO CONTEM VALORES, SO OS NOMES DAS COLUNAS
-					/*if(result[0].contains("inscricao") || result[0].contains("cienciasDaNatureza") || result[0].contains("matematica")){
-						System.out.println("111111111111");
-						continue;
-					}*/
-						
-					
-							
-					/*System.out.println("Inscricao =" + enemResult[0] +
-							" ; cienciasDaNatureza =" + enemResult[1] +
-							" ; cienciasHumanas =" + enemResult[2] +
-							" ; linguagensCodigos =" + enemResult[3] +
-							" ; matematica =" + enemResult[4] +
-							" ; redacao =" + enemResult[5]);*/
-										
-					
+
 					float coluna_1 = Float.valueOf(result[1]);
 					float coluna_2 = Float.valueOf(result[2]);
 					float coluna_3 = Float.valueOf(result[3]);
@@ -99,23 +83,4 @@ public class ReadCVS {
 
 			System.out.println("Sucesso!");
 		  }
-	 
-	 public void adicionaColunaMedia() throws IOException{
-		 CsvListReader reader;
-		try {
-			reader = new CsvListReader(new FileReader("C:/enem.csv"), CsvPreference.STANDARD_PREFERENCE);
-			CsvListWriter writer = new CsvListWriter(new FileWriter("C:/Users/Marcio/Videos/saida.csv"), CsvPreference.STANDARD_PREFERENCE);
-			 List<String> columns;
-			 while ((columns = reader.read()) != null) {	 
-			     columns.add(1, "	 Media");
-			     writer.write(columns);
-			 }
-			 reader.close();
-			 writer.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		 
-	 }
-
 }
