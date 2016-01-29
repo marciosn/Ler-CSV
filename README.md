@@ -1,1 +1,3 @@
-# Lê arquivo CSV, calcula média de notas, adiciona uma nova coluna com as médias.
+- Lê arquivo CSV
+- Calcula média de notas
+- Adiciona uma nova coluna com as médias.
