@@ -14,15 +14,12 @@ import org.supercsv.prefs.CsvPreference;
 
 public class ReadCVS {
 	
-	  public static void main(String[] args) {
+	  public static void main(String[] args) throws IOException {
 
 			ReadCVS obj = new ReadCVS();
-			try {
-				obj.run("C:/enem.csv");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+				obj.run("C:/Users/Marcio/Videos/enem10NotasSemInconsistencia2.csv");
+			
 	  }
 	
 	
@@ -43,8 +40,11 @@ public class ReadCVS {
 					result = line.split(cvsSplitBy);
 					
 					// IGNORA A PRIMEIRA LINHA DO CSV QUE NAO CONTEM VALORES, SO OS NOMES DAS COLUNAS
-					if(result[0].contains("inscricao") || result[0].contains("cienciasDaNatureza") || result[0].contains("matematica"))
+					/*if(result[0].contains("inscricao") || result[0].contains("cienciasDaNatureza") || result[0].contains("matematica")){
+						System.out.println("111111111111");
 						continue;
+					}*/
+						
 					
 							
 					/*System.out.println("Inscricao =" + enemResult[0] +
@@ -68,19 +68,15 @@ public class ReadCVS {
 				
 				CsvListReader reader;
 				try {
-					reader = new CsvListReader(new FileReader("C:/enem.csv"), CsvPreference.STANDARD_PREFERENCE);
+					reader = new CsvListReader(new FileReader(pathCSV), CsvPreference.STANDARD_PREFERENCE);
 					CsvListWriter writer = new CsvListWriter(new FileWriter("C:/Users/Marcio/Videos/saida.csv"), CsvPreference.STANDARD_PREFERENCE);
 					 List<String> columns;
 					 int i = 0;
-					 while ((columns = reader.read()) != null) {				 
-					    // columns.add(1, "	 Media");
+					 while ((columns = reader.read()) != null) {
 						 columns.add(1, "	  "+String.valueOf(mediasCalculadas.get(i)));
 					     writer.write(columns);
-
 					     i++;
-					     System.out.println(i);
 					 }
-					
 					 reader.close();
 					 writer.close();
 				} catch (FileNotFoundException e) {
